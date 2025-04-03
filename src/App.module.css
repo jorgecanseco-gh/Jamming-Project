@@ -11,6 +11,34 @@
   color: white;
 }
 
+.content {
+  display: flex; /* Use flexbox to align children horizontally */
+  justify-content: space-between; /* Space between Search Results and Playlist */
+  align-items: flex-start; /* Align items at the top */
+  width: 80%; /* Match the width of the SearchBar */
+  margin: 20px auto; /* Center the content horizontally */
+}
+
+.searchResults {
+  width: 48%; /* Take up 48% of the content width */
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(255, 255, 255, 0.05); /* Optional: Add a background */
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.playlist {
+  width: 48%; /* Take up 48% of the content width */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  background-color: rgba(255, 255, 255, 0.05); /* Optional: Add a background */
+  padding: 10px;
+  border-radius: 10px;
+}
+
 /* Styling for the header */
 .header {
   font-size: 2rem;

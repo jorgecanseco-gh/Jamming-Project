@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './App.module.css'
 import SearchBar from './Components/SearchBar/SearchBar';
 import SearchResults from './Components/SearchResults/SearchResults';
@@ -8,7 +8,32 @@ import Track from './Components/Track/Track';
 
 
 
+
 function App() {
+
+  const initialTracks = [
+    {
+      id: 123,
+      name: 'Rodeo',
+      artist: 'Travis Scott',
+      album: 'Rodeo'
+    },
+    {
+      id: 456,
+      name: 'Pluto',
+      artist: 'Future',
+      album: 'DS2'
+    },
+    {
+      id: 789,
+      name: 'Verano',
+      artist: 'Bad Bunny',
+      album: 'Un Verano Sin Ti'
+    }
+  ]
+
+  const [searchResults, setSearchResults] = useState(initialTracks);
+
   return (
     <div className={styles.App}>
       <header className={styles.header}>
@@ -16,11 +41,11 @@ function App() {
       </header>
       <main className={styles.main}>
         <SearchBar />
-        <SearchResults />
-        <TrackList />
-        <Playlist />
-        <TrackList/>
-        <Track />
+        <div className={styles.content}>
+          <div className={styles.searchResults}>
+            <SearchResults searchResults={searchResults} />
+          </div>
+        </div>
       </main>
     </div>
   )

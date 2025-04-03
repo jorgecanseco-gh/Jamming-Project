@@ -8,6 +8,7 @@ function Playlist() {
         <div classNAme={styles.Playlist}>
             <h2>Playlist</h2>
             {/* Add your playlist items here */}
+            <button type='submit' className={styles.saveButton}>Save to Spotify</button>
         </div>
     )
 }
