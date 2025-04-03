@@ -4,10 +4,14 @@ import Track from "../Track/Track";
 
 // This component is responsible for rendering the playlist section of the app.
 
-function Playlist({playlistName, playlistTracks, onRemove}) {
+function Playlist({playlistName, playlistTracks, onRemove, onNameChange}) {
     return (
         <div className={styles.Playlist}>
-            <h2>{playlistName}</h2>
+            <input
+                value={playlistName}
+                onChange={(e) => onNameChange(e.target.value)}
+                className={styles.playlistInput}
+            />
             {playlistTracks.map((track) => {
                 const { id, name, artist, album } = track;
                 return <Track
