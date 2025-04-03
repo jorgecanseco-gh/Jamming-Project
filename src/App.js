@@ -2,6 +2,7 @@
 import React from 'react';
 import styles from './App.module.css'
 import SearchBar from './Components/SearchBar/SearchBar';
+import SearchResults from './Components/SearchResults/SearchResults';
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       </header>
       <main className={styles.main}>
         <SearchBar />
+        <SearchResults />
       </main>
     </div>
   )
