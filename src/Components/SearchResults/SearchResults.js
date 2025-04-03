@@ -13,8 +13,8 @@ function SearchResults({ searchResults, onAdd }) {
                 {searchResults.map((track) => {
                     const { id, name, artist, album} = track;
                     return (
-                        <div>
-                        <Track key={id} name={name} artist={artist} album={album} track={track} onAdd={onAdd}/>
+                        <div key={id}>
+                        <Track name={name} artist={artist} album={album} track={track} onAdd={onAdd}/>
                         {/* Include a button to add o eliminate the track from the playlist */}
                         </div>
                     )

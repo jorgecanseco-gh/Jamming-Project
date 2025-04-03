@@ -4,7 +4,7 @@ import Track from "../Track/Track";
 
 // This component is responsible for rendering the playlist section of the app.
 
-function Playlist({playlistName, playlistTracks, onRemove, onNameChange}) {
+function Playlist({playlistName, playlistTracks, onRemove, onNameChange, onSave}) {
     return (
         <div className={styles.Playlist}>
             <input
@@ -23,7 +23,9 @@ function Playlist({playlistName, playlistTracks, onRemove, onNameChange}) {
                     onRemove={onRemove}
                 />
             })}
-            <button type='submit' className={styles.saveButton}>Save to Spotify</button>
+            <button onClick={onSave} className={styles.saveButton}>
+            Save to Spotify
+            </button>
         </div>
     )
 }

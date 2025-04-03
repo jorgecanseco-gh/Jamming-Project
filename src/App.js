@@ -25,24 +25,34 @@ function App() {
     setPlaylistTracks(removeFromPlaylist);
   }
 
+  const savePlaylist = () => {
+    const trackURIs = playlistTracks.map((track) => track.uri)
+    console.log("Saving to Spotify:", trackURIs);
+    setPlaylistName('New Playlist');
+    setPlaylistTracks([]);
+  }
+
   const initialTracks = [
     {
       id: 123,
       name: 'Rodeo',
       artist: 'Travis Scott',
-      album: 'Rodeo'
+      album: 'Rodeo',
+      uri: 'spotify:track:1234567890'
     },
     {
       id: 456,
       name: 'Pluto',
       artist: 'Future',
-      album: 'DS2'
+      album: 'DS2',
+      uri: 'spotify:track:1234562347890'
     },
     {
       id: 789,
       name: 'Verano',
       artist: 'Bad Bunny',
-      album: 'Un Verano Sin Ti'
+      album: 'Un Verano Sin Ti',
+      uri: 'spotify:track:1234567657561890'
     }
   ]
 
@@ -68,6 +78,7 @@ function App() {
             playlistTracks={playlistTracks} 
             onRemove={removeTrack}
             onNameChange={setPlaylistName}
+            onSave={savePlaylist}
             />
           </div>
         </div>
