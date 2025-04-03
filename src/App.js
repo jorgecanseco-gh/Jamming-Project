@@ -4,6 +4,7 @@ import styles from './App.module.css'
 import SearchBar from './Components/SearchBar/SearchBar';
 import SearchResults from './Components/SearchResults/SearchResults';
 import TrackList from './Components/Tracklist/Tracklist';
+import Playlist from './Components/Playlist/Playlist';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <SearchBar />
         <SearchResults />
         <TrackList />
+        <Playlist />
       </main>
     </div>
   )
