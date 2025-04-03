@@ -33,6 +33,8 @@ function App() {
   ]
 
   const [searchResults, setSearchResults] = useState(initialTracks);
+  const [PlaylistName, setPlaylistName] = useState('My Playlist');
+  const [playlistTracks, setPlaylistTracks] = useState([]);
 
   return (
     <div className={styles.App}>
@@ -44,6 +46,7 @@ function App() {
         <div className={styles.content}>
           <div className={styles.searchResults}>
             <SearchResults searchResults={searchResults} />
+            <Playlist PlaylistName={PlaylistName} playlistTracks={playlistTracks} />
           </div>
         </div>
       </main>
