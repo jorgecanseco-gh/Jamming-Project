@@ -10,11 +10,12 @@ function Track({name, artist, album, track, onAdd, onRemove}) {
             <h3>{name}</h3>
             <p>{artist}</p>
             <p>{album}</p>
-            <button onClick={() => onAdd(track)}>+</button>
+            {onAdd && <button onClick={() => onAdd(track)}>+</button>}
             {onRemove && <button onClick={() => onRemove(track)}>-</button>}
         </div>
     )
 }
+
 
 
 // Export the Track component

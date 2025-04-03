@@ -5,6 +5,7 @@ import SearchResults from './Components/SearchResults/SearchResults';
 import TrackList from './Components/Tracklist/Tracklist';
 import Playlist from './Components/Playlist/Playlist';
 import Track from './Components/Track/Track';
+import Spotify from './util/Spotify';
 
 
 
@@ -60,13 +61,20 @@ function App() {
   const [playlistName, setPlaylistName] = useState('My Playlist');
   const [playlistTracks, setPlaylistTracks] = useState([]);
 
+  const searchSpotify = (term) => {
+    Spotify.search(term).then((results) => {
+      setSearchResults(results);
+    });
+  };
+  
+
   return (
     <div className={styles.App}>
       <header className={styles.header}>
       Jamming
       </header>
       <main className={styles.main}>
-        <SearchBar />
+        <SearchBar onSearch={searchSpotify}/>
         <div className={styles.content}>
           <div className={styles.searchResults}>
             <SearchResults 
