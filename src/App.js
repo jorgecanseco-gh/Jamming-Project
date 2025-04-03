@@ -11,6 +11,15 @@ import Track from './Components/Track/Track';
 
 function App() {
 
+  const addTrack = (track) => {
+    let tracks = [...playlistTracks];
+    const alreadyInPlayList = playlistTracks.some((savedTrack) => savedTrack.id === track.id);
+    if (!alreadyInPlayList) {
+      tracks.push(track);
+      setPlaylistTracks(tracks);
+    }
+  }
+
   const initialTracks = [
     {
       id: 123,
@@ -45,7 +54,10 @@ function App() {
         <SearchBar />
         <div className={styles.content}>
           <div className={styles.searchResults}>
-            <SearchResults searchResults={searchResults} />
+            <SearchResults 
+            searchResults={searchResults} 
+            onAdd={addTrack}
+            />
             <Playlist PlaylistName={PlaylistName} playlistTracks={playlistTracks} />
           </div>
         </div>
