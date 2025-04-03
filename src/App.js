@@ -20,6 +20,11 @@ function App() {
     }
   }
 
+  const removeTrack = (track) => {
+    const removeFromPlaylist = playlistTracks.filter((savedTrack) => savedTrack.id !== track.id);
+    setPlaylistTracks(removeFromPlaylist);
+  }
+
   const initialTracks = [
     {
       id: 123,
@@ -42,7 +47,7 @@ function App() {
   ]
 
   const [searchResults, setSearchResults] = useState(initialTracks);
-  const [PlaylistName, setPlaylistName] = useState('My Playlist');
+  const [playlistName, setPlaylistName] = useState('My Playlist');
   const [playlistTracks, setPlaylistTracks] = useState([]);
 
   return (
@@ -58,7 +63,11 @@ function App() {
             searchResults={searchResults} 
             onAdd={addTrack}
             />
-            <Playlist PlaylistName={PlaylistName} playlistTracks={playlistTracks} />
+            <Playlist 
+            playlistName={playlistName} 
+            playlistTracks={playlistTracks} 
+            onRemove={removeTrack}
+            />
           </div>
         </div>
       </main>
