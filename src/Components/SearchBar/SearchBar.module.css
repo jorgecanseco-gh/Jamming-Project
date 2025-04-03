@@ -1,0 +1,30 @@
+.searchBarContainer {
+    box-sizing: border-box;
+    margin: 0 auto;
+    width: 95%;
+    padding: 0;
+}
+
+
+.input {
+    width: 100%;
+    margin: 10px 0;
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 20px;
+}
+
+.searchButton {
+    margin-top: 15px;
+    width: 150px;
+    padding: 15px;
+    background-color: #1db954; /* Spotify green */
+    border-radius: 20px;
+
+}
+
+.searchButton:hover {
+    background-color: #96ffbb; /* Darker green for hover effect */
+    transform: scale(1.05); /* Slightly enlarge the button */
+    transition: all 0.3s ease; /* Smooth transition */
+}
