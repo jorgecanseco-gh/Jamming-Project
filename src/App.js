@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './App.module.css'
 import SearchBar from './Components/SearchBar/SearchBar';
 import SearchResults from './Components/SearchResults/SearchResults';
@@ -11,6 +11,10 @@ import Spotify from './util/Spotify';
 
 
 function App() {
+
+  useEffect(() => {
+    Spotify.getAccessToken(); // triggers login on app load
+  }, []);
 
   const addTrack = (track) => {
     let tracks = [...playlistTracks];
@@ -27,11 +31,25 @@ function App() {
   }
 
   const savePlaylist = () => {
-    const trackURIs = playlistTracks.map((track) => track.uri)
+    const trackURIs = playlistTracks.map((track) => track.uri);
+  
+    if (!playlistName || trackURIs.length === 0) {
+      console.warn("Playlist name or track URIs missing.");
+      return;
+    }
+  
     console.log("Saving to Spotify:", trackURIs);
-    setPlaylistName('New Playlist');
-    setPlaylistTracks([]);
-  }
+  
+    Spotify.savePlaylist(playlistName, trackURIs)
+      .then(() => {
+        console.log("Playlist successfully saved!");
+        setPlaylistName('New Playlist');
+        setPlaylistTracks([]);
+      })
+      .catch((error) => {
+        console.error("Failed to save playlist:", error);
+      });
+  };
 
   const initialTracks = [
     {
@@ -66,6 +84,8 @@ function App() {
       setSearchResults(results);
     });
   };
+
+  
   
 
   return (

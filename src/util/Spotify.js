@@ -2,7 +2,7 @@ import React from "react";
 
 let accessToken;
 const clientId = 'fbc15bcdb8a64809a90b4d0daa3fca1a';
-const redirectUri = "http://localhost:3000/?";
+const redirectUri = "http://localhost:3000/";
 
 const Spotify = {
   getAccessToken() {
@@ -47,6 +47,51 @@ const Spotify = {
           album: track.album.name,
           uri: track.uri
         }));
+      });
+  },
+
+  savePlaylist(playlistName, trackUris) {
+    if (!playlistName || !trackUris.length) return;
+
+    const accessToken = Spotify.getAccessToken();
+
+    return fetch('https://api.spotify.com/v1/me', {
+      headers: {
+        Authorization: `Bearer ${accessToken}`
+      }
+    })
+      .then(response => response.json())
+      .then(jsonResponse => {
+        const userId = jsonResponse.id;
+
+        // Create a new playlist
+        return fetch(`https://api.spotify.com/v1/users/${userId}/playlists`, {
+          method: 'POST',
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            name: playlistName,
+            public: true
+          })
+        })
+          .then(response => response.json())
+          .then(jsonResponse => {
+            const playlistId = jsonResponse.id;
+
+            // Add tracks to the newly created playlist
+            return fetch(`https://api.spotify.com/v1/playlists/${playlistId}/tracks`, {
+              method: 'POST',
+              headers: {
+                Authorization: `Bearer ${accessToken}`,
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify({
+                uris: trackUris
+              })
+            });
+          });
       });
   }
 };
