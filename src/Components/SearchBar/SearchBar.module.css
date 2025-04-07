@@ -1,30 +1,35 @@
 .searchBarContainer {
-    box-sizing: border-box;
-    margin: 0 auto;
-    width: 95%;
-    padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 20px;
 }
 
-
 .input {
-    width: 100%;
-    margin: 10px 0;
-    padding: 20px;
-    box-sizing: border-box;
-    border-radius: 20px;
+  width: 70%;
+  padding: 15px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  margin-right: 10px;
+  background-color: #1e1e1e;
+  color: white;
+  outline: none;
 }
 
 .searchButton {
-    margin-top: 15px;
-    width: 150px;
-    padding: 15px;
-    background-color: #1db954; /* Spotify green */
-    border-radius: 20px;
-
+  padding: 15px 20px;
+  font-size: 1rem;
+  background-color: #1db954; /* Spotify green */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 .searchButton:hover {
-    background-color: #96ffbb; /* Darker green for hover effect */
-    transform: scale(1.05); /* Slightly enlarge the button */
-    transition: all 0.3s ease; /* Smooth transition */
+  background-color: #1ed760; /* Slightly lighter green */
+  transform: scale(1.05); /* Subtle hover effect */
+  transition: all 0.3s ease;
 }

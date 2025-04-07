@@ -14,7 +14,7 @@ function SearchResults({ searchResults, onAdd }) {
                     const { id, name, artist, album} = track;
                     return (
                         <div key={id}>
-                        <Track name={name} artist={artist} album={album} track={track} onAdd={onAdd}/>
+                        <Track name={name} artist={artist} album={album} track={track} onAdd={onAdd} preview={track.preview}/>
                         {/* Include a button to add o eliminate the track from the playlist */}
                         </div>
                     )

@@ -57,21 +57,24 @@ function App() {
       name: 'Rodeo',
       artist: 'Travis Scott',
       album: 'Rodeo',
-      uri: 'spotify:track:1234567890'
+      uri: 'spotify:track:1234567890',
+      preview: 'https://p.scdn.co/mp3-preview/2bc7eebf064c44300ad0196937b963f015b6b0a0?cid=774b29d4f13844c495f206cafdad9c86'
     },
     {
       id: 456,
       name: 'Pluto',
       artist: 'Future',
       album: 'DS2',
-      uri: 'spotify:track:1234562347890'
+      uri: 'spotify:track:1234562347890',
+      preview: 'https://p.scdn.co/mp3-preview/2bc7eebf064c44300ad0196937b963f015b6b0a0?cid=774b29d4f13844c495f206cafdad9c86'
     },
     {
       id: 789,
       name: 'Verano',
       artist: 'Bad Bunny',
       album: 'Un Verano Sin Ti',
-      uri: 'spotify:track:1234567657561890'
+      uri: 'spotify:track:1234567657561890',
+      preview: 'https://p.scdn.co/mp3-preview/2bc7eebf064c44300ad0196937b963f015b6b0a0?cid=774b29d4f13844c495f206cafdad9c86'
     }
   ]
 
@@ -91,22 +94,24 @@ function App() {
   return (
     <div className={styles.App}>
       <header className={styles.header}>
-      Jamming
+        Jamming
       </header>
       <main className={styles.main}>
-        <SearchBar onSearch={searchSpotify}/>
+        <SearchBar onSearch={searchSpotify} />
         <div className={styles.content}>
           <div className={styles.searchResults}>
             <SearchResults 
-            searchResults={searchResults} 
-            onAdd={addTrack}
+              searchResults={searchResults} 
+              onAdd={addTrack} 
             />
+          </div>
+          <div className={styles.playlist}>
             <Playlist 
-            playlistName={playlistName} 
-            playlistTracks={playlistTracks} 
-            onRemove={removeTrack}
-            onNameChange={setPlaylistName}
-            onSave={savePlaylist}
+              playlistName={playlistName} 
+              playlistTracks={playlistTracks} 
+              onRemove={removeTrack} 
+              onNameChange={setPlaylistName} 
+              onSave={savePlaylist} 
             />
           </div>
         </div>

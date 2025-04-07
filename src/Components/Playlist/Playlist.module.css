@@ -1,14 +1,43 @@
 .Playlist {
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Space between track cards */
+  background-color: #1e1e1e; /* Match the panel background */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Subtle shadow for depth */
 }
 
 .playlistInput {
-    font-size: 1.5rem;
-    border: none;
-    background: transparent;
-    outline: none;
-    text-align: center;
-    color: white;
-  }
+  font-size: 1.5rem;
+  border: none;
+  background: transparent;
+  outline: none;
+  text-align: center;
+  color: white;
+  margin-bottom: 15px;
+}
+
+.tracklist {
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Space between tracks */
+}
+
+.saveButton {
+  padding: 15px;
+  font-size: 1rem;
+  background-color: #1db954; /* Spotify green */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  align-self: center; /* Center the button horizontally */
+  margin-top: 20px; /* Add spacing above the button */
+}
+
+.saveButton:hover {
+  background-color: #1ed760; /* Slightly lighter green */
+  transform: scale(1.05); /* Subtle hover effect */
+  transition: all 0.3s ease;
+}

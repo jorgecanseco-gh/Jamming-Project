@@ -1,5 +1,14 @@
 .SearchResults {
-    margin-top: 0;
-    display: flex;
-    justify-content: flex-start;
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Space between track cards */
+  background-color: #1e1e1e; /* Match the panel background */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Subtle shadow for depth */
+}
+
+h2 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
 }

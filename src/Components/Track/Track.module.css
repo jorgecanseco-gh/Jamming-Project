@@ -1,0 +1,42 @@
+.Track {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #2a2a2a; /* Slightly lighter background for track cards */
+  padding: 10px 15px;
+  border-radius: 5px;
+  color: white;
+}
+
+.Track h3 {
+  font-size: 1rem;
+  margin: 0;
+}
+
+.Track p {
+  font-size: 0.9rem;
+  margin: 0;
+  color: #b3b3b3; /* Lighter text for artist/album */
+}
+
+.Track button {
+  background-color: #1db954; /* Spotify green */
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.Track button:hover {
+  background-color: #1ed760; /* Slightly lighter green */
+  transform: scale(1.1); /* Subtle hover effect */
+  transition: all 0.3s ease;
+}
+
+.audioPlayer {
+  margin-top: 8px;
+  width: 100%;
+}
